@@ -111,6 +111,7 @@ public final class CaptureActivity extends Activity implements SurfaceHolder.Cal
   private BeepManager beepManager;
   private AmbientLightManager ambientLightManager;
   
+  // add by tao on 20171111
   public static void showActivity(Activity aActivity, String aMode, int aRequestCode)
   {
 	   Intent intent = new Intent(Intents.Scan.ACTION);            

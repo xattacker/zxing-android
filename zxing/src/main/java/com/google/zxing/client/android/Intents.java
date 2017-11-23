@@ -91,6 +91,7 @@ public final class Intents {
      */
     public static final String FORMATS = "SCAN_FORMATS";
 
+	// add by tao on 20171111
     public static final Collection<String> PRODUCT_CODE_FORMATS = list("UPC_A", "UPC_E", "EAN_8", "EAN_13", "RSS_14");
 
     public static final Collection<String> ONE_D_CODE_FORMATS = list("UPC_A", "UPC_E", "UPC_EAN_EXTENSION", "EAN_8", "EAN_13", "CODABAR", "CODE_39",
@@ -187,9 +188,11 @@ public final class Intents {
      */
     public static final String SAVE_HISTORY = "SAVE_HISTORY";
 
-    private Scan() {
+    private Scan()
+    {
     }
-    
+
+    // add by tao on 20171111
     private static List<String> list(String... values) 
     {
        return Collections.unmodifiableList(Arrays.asList(values));

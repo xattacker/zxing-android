@@ -122,7 +122,7 @@ final class CameraConfigurationManager {
     display.getSize(theScreenResolution);
     screenResolution = theScreenResolution;
     
-    
+    // add by tao on 20171111, for orientation handle
     if (displayRotation == Surface.ROTATION_0){
     	int temp = screenResolution.x;
     	screenResolution.x = screenResolution.y;

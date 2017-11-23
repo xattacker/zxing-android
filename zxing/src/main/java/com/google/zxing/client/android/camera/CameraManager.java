@@ -222,6 +222,7 @@ public final class CameraManager {
         return null;
       }
 
+	 // add by tao on 20171111, for orientation handle
 //    int width = findDesiredDimensionInRange(screenResolution.x, MIN_FRAME_WIDTH, MAX_FRAME_WIDTH);
 //    int height = findDesiredDimensionInRange(screenResolution.y, MIN_FRAME_HEIGHT, MAX_FRAME_HEIGHT);
 
@@ -291,7 +292,7 @@ public final class CameraManager {
         return null;
       }
       
- 	   rect.left = rect.left * cameraResolution.x / screenResolution.x;
+ 	  rect.left = rect.left * cameraResolution.x / screenResolution.x;
       rect.right = rect.right * cameraResolution.x / screenResolution.x;
       rect.top = rect.top * cameraResolution.y / screenResolution.y;
       rect.bottom = rect.bottom * cameraResolution.y / screenResolution.y;
@@ -354,7 +355,7 @@ public final class CameraManager {
       return null;
     }
     
-    
+    // add by tao on 20171111, for orientation handle
     //this if saves the app from crashing when switching orientation........
     //finally debugged the biggest problem ...yippee
     if (rect.left + rect.width() > width || rect.top + rect.height() > height)

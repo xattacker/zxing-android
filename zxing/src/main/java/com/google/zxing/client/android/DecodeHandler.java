@@ -78,7 +78,7 @@ final class DecodeHandler extends Handler {
     long start = System.currentTimeMillis();
     Result rawResult = null;
     
-		//  ///////my code////////////
+		// add by tao on 20171111, for orientation handle
 		int rotation = activity.getWindowManager().getDefaultDisplay().getRotation();
 		byte[] rotatedData = new byte[data.length];
 		PlanarYUVLuminanceSource source;
