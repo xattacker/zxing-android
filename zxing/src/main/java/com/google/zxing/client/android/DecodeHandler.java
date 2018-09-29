@@ -17,6 +17,13 @@
 package com.google.zxing.client.android;
 
 import android.graphics.Bitmap;
+import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
+import android.os.Message;
+import android.util.Log;
+import android.view.Surface;
+
 import com.google.zxing.BinaryBitmap;
 import com.google.zxing.DecodeHintType;
 import com.google.zxing.MultiFormatReader;
@@ -24,13 +31,6 @@ import com.google.zxing.PlanarYUVLuminanceSource;
 import com.google.zxing.ReaderException;
 import com.google.zxing.Result;
 import com.google.zxing.common.HybridBinarizer;
-
-import android.os.Bundle;
-import android.os.Handler;
-import android.os.Looper;
-import android.os.Message;
-import android.util.Log;
-import android.view.Surface;
 
 import java.io.ByteArrayOutputStream;
 import java.util.Map;
@@ -78,6 +78,7 @@ final class DecodeHandler extends Handler {
     long start = System.currentTimeMillis();
     Result rawResult = null;
     
+        /*
 		// add by tao on 20171111, for orientation handle
 		int rotation = activity.getWindowManager().getDefaultDisplay().getRotation();
 		byte[] rotatedData = new byte[data.length];
@@ -101,10 +102,41 @@ final class DecodeHandler extends Handler {
 				source = activity.getCameraManager().buildLuminanceSource(data, width, height);
 				break;
 		}
+		*/
+
+        // add by tao on 20180927
+        /*
+        // 引用自 https://github.com/XieZhiFa/ZxingZbar
+        轉換動作改由jni 透過 c function 來做, 效能可大幅改善
+         */
+
+      data = DecodeHandlerJni.dataHandler(data, data.length, width, height);
+
+      switch(activity.getWindowManager().getDefaultDisplay().getRotation())
+      {
+          case Surface.ROTATION_0:
+          {
+              int tmp = width;
+              width = height;
+              height = tmp;
+          }
+              break;
+
+          case Surface.ROTATION_270:
+          {
+              int tmp = width;
+              width = height;
+              height = tmp;
+          }
+              break;
+      }
+
+      PlanarYUVLuminanceSource source = activity.getCameraManager().buildLuminanceSource(data, width, height);
 		
-    //PlanarYUVLuminanceSource source = activity.getCameraManager().buildLuminanceSource(data, width, height);
+
     if (source != null) {
       BinaryBitmap bitmap = new BinaryBitmap(new HybridBinarizer(source));
+
       try {
         rawResult = multiFormatReader.decodeWithState(bitmap);
       } catch (ReaderException re) {

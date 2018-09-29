@@ -239,9 +239,9 @@ public final class CameraManager {
 	    case Configuration.ORIENTATION_PORTRAIT:
 	        width = findDesiredDimensionInRange(screenResolution.y, MIN_FRAME_WIDTH, MAX_FRAME_WIDTH);
 	        height = findDesiredDimensionInRange(screenResolution.x, MIN_FRAME_HEIGHT, MAX_FRAME_HEIGHT);
-		  	  leftOffset = (screenResolution.y - width) / 5;
-		  	  topOffset = (screenResolution.x - height) /2;
-		  	  framingRect = new Rect(leftOffset, topOffset, screenResolution.y - leftOffset, topOffset + height);
+		  	  leftOffset = (screenResolution.y - width) / 2;
+		  	  topOffset = (screenResolution.x - height) / 2;
+		  	  framingRect = new Rect(leftOffset, topOffset, leftOffset + width, topOffset + height);
 		  	  break;
 	  	  
 	    default: 
