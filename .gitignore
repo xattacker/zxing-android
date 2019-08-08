@@ -14,8 +14,8 @@
 *.lib
 *.pc
 *.pdb
-*.so
-*.so.*
+#*.so
+#*.so.*
 *.swp
 *.ver
 *.version
