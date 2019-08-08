@@ -16,6 +16,7 @@
 *.pdb
 #*.so
 #*.so.*
+.DS_Store
 *.swp
 *.ver
 *.version
