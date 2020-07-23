@@ -16,6 +16,6 @@ CaptureActivity.showActivity(this, Intents.Scan.TWO_D_CODE_FORMATS, REQUEST_CODE
 
 
 ``` 
-20180929, 參考自 https://github.com/XieZhiFa/ZxingZbar
+20180929, 參考自 https://github.com/Hearst-DD/ObjectMapper https://github.com/XieZhiFa/ZxingZbar
 改善掃瞄效能處理
 ```
