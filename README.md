@@ -12,6 +12,6 @@ CaptureActivity.showActivity(this, Intents.Scan.TWO_D_CODE_FORMATS, REQUEST_CODE
 ### 引用此專案時 請 import module zxing 即可
 
 
-*****
+###
 20180929, 參考自 [https://github.com/XieZhiFa/ZxingZbar](https://github.com/XieZhiFa/ZxingZbar)
 改善掃瞄效能處理
