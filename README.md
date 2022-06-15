@@ -11,7 +11,7 @@ CaptureActivity.showActivity(this, Intents.Scan.TWO_D_CODE_FORMATS, REQUEST_CODE
 引用此專案時 請 import module zxing 即可
 
 20220615:
-現在建議直接使用 google 官方的 ML kit 中的 barcode scanning 模組, 辨識度也比較高
+現在建議直接使用 google 官方的 ML kit 中的 barcode scanning 模組, 辨識度也比較高<br/>
 https://developers.google.com/ml-kit/vision/barcode-scanning/android
 
 
