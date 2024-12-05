@@ -14,8 +14,7 @@
  See the License for the specific language governing permissions and
  limitations under the License.
  -->
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="com.google.zxing.client.android">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
 
   <uses-permission android:name="android.permission.CAMERA"/>
   <uses-permission android:name="android.permission.INTERNET"/>
@@ -36,12 +35,14 @@
 
   <application android:label="@string/app_name"
                android:allowBackup="true">
+
     <activity android:name=".CaptureActivity"
               android:screenOrientation="portrait"
               android:clearTaskOnLaunch="true"
               android:stateNotNeeded="true"
               android:theme="@style/CaptureTheme"
-              android:windowSoftInputMode="stateAlwaysHidden">
+              android:windowSoftInputMode="stateAlwaysHidden"
+              android:exported="true">
       <intent-filter>
         <action android:name="com.google.zxing.client.android.SCAN"/>
         <category android:name="android.intent.category.DEFAULT"/>
@@ -75,11 +76,14 @@
         <data android:scheme="zxing" android:host="scan" android:path="/"/>
       </intent-filter>
     </activity>
+
     <activity android:name=".PreferencesActivity"
               android:label="@string/preferences_name"
               android:stateNotNeeded="true"/>
+
     <activity android:name=".encode.EncodeActivity"
-              android:stateNotNeeded="true">
+              android:stateNotNeeded="true"
+              android:exported="true">>
       <intent-filter>
         <action android:name="com.google.zxing.client.android.ENCODE"/>
         <category android:name="android.intent.category.DEFAULT"/>
@@ -97,21 +101,24 @@
         <data android:mimeType="text/plain"/>
       </intent-filter>
     </activity>
+
     <activity android:name=".book.SearchBookContentsActivity"
               android:label="@string/sbc_name"
               android:stateNotNeeded="true"
-              android:screenOrientation="sensorLandscape">
+              android:screenOrientation="sensorLandscape"
+              android:exported="true">>
       <intent-filter>
         <action android:name="com.google.zxing.client.android.SEARCH_BOOK_CONTENTS"/>
         <category android:name="android.intent.category.DEFAULT"/>
       </intent-filter>
     </activity>
+
     <activity android:name=".share.BookmarkPickerActivity"
               android:label="@string/bookmark_picker_name"
               android:stateNotNeeded="true"/>
+
     <activity android:name=".share.AppPickerActivity"
               android:label="@string/app_picker_name"
               android:stateNotNeeded="true"/>
   </application>
-
 </manifest>
